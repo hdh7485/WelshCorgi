@@ -1,7 +1,7 @@
 #include "Wheel.h"
 #include "Arduino.h"
 
-Wheel::Wheel(int pin_en1, int pin_en2, int pin_pwm)
+Wheel::Wheel(uint8_t pin_en1, uint8_t pin_en2, uint8_t pin_pwm)
     : _pin_en1(pin_en1), _pin_en2(pin_en2), _pin_pwm(pin_pwm)
 {
     pinMode(_pin_en1, OUTPUT);

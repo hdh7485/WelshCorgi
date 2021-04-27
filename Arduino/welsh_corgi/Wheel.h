@@ -4,11 +4,11 @@
 
 class Wheel {
   private:
-    int _pin_en1;
-    int _pin_en2;
-    int _pin_pwm;
+    const uint8_t _pin_en1;
+    const uint8_t _pin_en2;
+    const uint8_t _pin_pwm;
   public:
-    Wheel(int pin_en1 = 9, int pin_en2 = 10, int pin_pwm = 11);
+    Wheel(uint8_t pin_en1 = 9, uint8_t pin_en2 = 10, uint8_t pin_pwm = 11);
     void rotate(int pwm = 0);
 };
 #endif
