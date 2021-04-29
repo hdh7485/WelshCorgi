@@ -25,20 +25,20 @@ void setup()
 }
 void loop()
 {
-  if (futaba.readCal(channels, &failSafe, &lostFrame)) {
-    //x = channels[1] - 1025;
-    //y = channels[0] - 1025;
-    //yaw = channels[3] - 1025;
-    x = channels[1] * 1024;
-    y = channels[0] * 1024;
-    yaw = channels[3] * 1024;
+  if (futaba.read(channels, &failSafe, &lostFrame)) {
+    x = channels[1] - 1025;
+    y = channels[0] - 1025;
+    yaw = channels[3] - 1025;
+//    x = channels[1] * 1024;
+//    y = channels[0] * 1024;
+//    yaw = channels[3] * 1024;
     Serial.println(x);
     Serial.println(y);
     Serial.println(yaw);
     wheel_FL.rotate(-x + y + yaw);
     wheel_RL.rotate(-x - y + yaw);
-    wheel_FR.rotate(-x - y + yaw);
-    wheel_RR.rotate(-x + y + yaw);
+    wheel_FR.rotate(-x - y - yaw);
+    wheel_RR.rotate(-x + y - yaw);
     delay(5);
   }
 }
